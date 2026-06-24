@@ -1,0 +1,9 @@
+package LLD.ATMMachine.NaiveATM;
+
+public enum ATMState {
+    IDLE,
+    TRANSACTION_IN_PROGRESS,
+    CARD_INSERTED,
+    AMOUNT_ENTERED,
+    DISPENSING_CASH
+}
