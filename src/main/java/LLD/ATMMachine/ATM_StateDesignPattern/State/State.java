@@ -1,7 +1,8 @@
 package LLD.ATMMachine.ATM_StateDesignPattern.State;
 
+import LLD.ATMMachine.ATM_StateDesignPattern.Enums.ATMStates;
 import LLD.ATMMachine.ATM_StateDesignPattern.Model.Card;
-import LLD.ATMMachine.NaiveATM.ATMState;
+
 
 public interface State {
     /*
@@ -20,5 +21,5 @@ public interface State {
 
     boolean readCashWithdrawlDetails(int transactionId , int amount); // read the cash withdrawl details
 
-    ATMState getState(); // get the current state of the ATM
+     ATMStates getState(); // get the current state of the ATM
 }
