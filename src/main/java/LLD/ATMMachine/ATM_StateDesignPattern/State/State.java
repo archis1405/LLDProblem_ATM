@@ -13,13 +13,15 @@ public interface State {
 
     int initTransaction(); // start of the transaction
 
-    boolean readCardDetails(Card card); // read the card details
+    boolean readCardDetails(Card card , int pin); // read the card details
 
     int dispenseCash(int transactionId); // dispense the cash
 
     void ejectCard(); // eject the card
 
-    boolean readCashWithdrawlDetails(int transactionId , int amount); // read the cash withdrawl details
+    boolean readCashWithdrawlDetails(Card card , int transactionId , double amount); // read the cash withdrawl details
 
      ATMStates getState(); // get the current state of the ATM
+
+    boolean cancelTransaction(int transactionId);
 }

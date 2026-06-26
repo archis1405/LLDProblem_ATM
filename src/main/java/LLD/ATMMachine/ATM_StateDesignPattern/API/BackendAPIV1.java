@@ -1,6 +1,7 @@
 package LLD.ATMMachine.ATM_StateDesignPattern.API;
 
 import LLD.ATMMachine.ATM_StateDesignPattern.DTO.CreateTransactionRequestDTO;
+import LLD.ATMMachine.ATM_StateDesignPattern.DTO.GetATMAmountRequestDTO;
 import LLD.ATMMachine.ATM_StateDesignPattern.DTO.UpdateATMStateRequestDTO;
 
 public class BackendAPIV1 implements BackendAPIInterface {
@@ -33,5 +34,10 @@ public class BackendAPIV1 implements BackendAPIInterface {
             steps for the state update -> assuming the backend service sends a success response
          */
         return true;
+    }
+
+    @Override
+    public int getAtmAmount(GetATMAmountRequestDTO atmId) {
+        return 100000;// dummy call
     }
 }

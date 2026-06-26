@@ -4,21 +4,21 @@ import LLD.ATMMachine.ATM_StateDesignPattern.Model.Card;
 
 public class DebitCardManagerServiceImpl implements CardManagerService{
     @Override
-    public boolean validateCard(Card card, String pin) {
+    public boolean validateCard(Card card, int pin) {
         /*
             the card validation will be ideally done by our backend
             so, here we will be having a API call for the card validation
          */
-        return false;
+        return true;
     }
 
     @Override
     public boolean doTransaction(Card card, int transactionId) {
-        return false;
+        return true;
     }
 
     @Override
-    public boolean validateWithdrawl(Card card, double amount) {
-        return false;
+    public boolean validateWithdrawl(Card card , int transactionId, double amount) {
+        return true;
     }
 }

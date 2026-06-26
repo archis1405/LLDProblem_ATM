@@ -1,6 +1,7 @@
 package LLD.ATMMachine.ATM_StateDesignPattern.State;
 
 import LLD.ATMMachine.ATM_StateDesignPattern.API.BackendAPIInterface;
+import LLD.ATMMachine.ATM_StateDesignPattern.API.BackendAPIV1;
 import LLD.ATMMachine.ATM_StateDesignPattern.DTO.CreateTransactionRequestDTO;
 import LLD.ATMMachine.ATM_StateDesignPattern.Enums.ATMStates;
 import LLD.ATMMachine.ATM_StateDesignPattern.Model.ATM;
@@ -22,9 +23,9 @@ public class ReadyForTransactionState implements State{
         we need an ATM object to get the ATM id which will be used to generate a transaction id
      */
 
-    public ReadyForTransactionState(ATM atm , BackendAPIInterface atmBackendAPI) {
+    public ReadyForTransactionState(ATM atm) {
         this.atm = atm;
-        this.atmBackendAPI = atmBackendAPI;
+        this.atmBackendAPI = new BackendAPIV1();
     }
 
 
@@ -62,14 +63,14 @@ public class ReadyForTransactionState implements State{
 
          */
 
-        this.atm.changeState(new ReadCardDetailsState());
+        this.atm.changeState(new ReadCardDetailsState(this.atm));
 
         return transactionId;
 
     }
 
     @Override
-    public boolean readCardDetails(Card card) {
+    public boolean readCardDetails(Card card , int pin) {
         throw new IllegalStateException("Cannot read card details without initializing transaction");
     }
 
@@ -84,12 +85,17 @@ public class ReadyForTransactionState implements State{
     }
 
     @Override
-    public boolean readCashWithdrawlDetails(int transactionId, int amount) {
+    public boolean readCashWithdrawlDetails(Card card , int transactionId, double amount) {
         throw new IllegalStateException("Cannot read cash withdrawl details without card details");
     }
 
     @Override
     public ATMStates getState() {
         return ATMStates.READY_FOR_TRANSACTION;
+    }
+
+    @Override
+    public boolean cancelTransaction(int transactionId) {
+        throw new IllegalStateException("Cannot cancel a transaction without reading a card");
     }
 }
