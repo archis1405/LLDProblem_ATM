@@ -7,5 +7,5 @@ public interface CardManagerService {
 
     boolean validateWithdrawl(Card card, int transactionId , double amount);;
 
-    boolean doTransaction(Card card, int transactionId);
+    boolean doTransaction(Card card, double amount, int transactionId);
 }

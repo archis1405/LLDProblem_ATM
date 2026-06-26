@@ -75,7 +75,7 @@ public class ReadyForTransactionState implements State{
     }
 
     @Override
-    public int dispenseCash(int transactionId) {
+    public int dispenseCash(Card card , double amount, int transactionId) {
         throw new IllegalStateException("Cannot dispense cash without reading card details");
     }
 

@@ -42,7 +42,7 @@ public class ReadingCashWithdrawlDetailsState implements State{
     }
 
     @Override
-    public int dispenseCash(int transactionId) {
+    public int dispenseCash(Card card , double amount , int transactionId) {
         throw new IllegalStateException("Cannot dispense cash while reading withdrawl details");
     }
 

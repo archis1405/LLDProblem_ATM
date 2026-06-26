@@ -13,7 +13,7 @@ public class DebitCardManagerServiceImpl implements CardManagerService{
     }
 
     @Override
-    public boolean doTransaction(Card card, int transactionId) {
+    public boolean doTransaction(Card card, double amount, int transactionId) {
         return true;
     }
 

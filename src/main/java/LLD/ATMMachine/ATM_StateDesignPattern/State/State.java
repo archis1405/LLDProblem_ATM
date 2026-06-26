@@ -15,7 +15,7 @@ public interface State {
 
     boolean readCardDetails(Card card , int pin); // read the card details
 
-    int dispenseCash(int transactionId); // dispense the cash
+    int dispenseCash(Card card , double amount , int transactionId); // dispense the cash
 
     void ejectCard(); // eject the card
 
