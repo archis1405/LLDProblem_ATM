@@ -49,7 +49,7 @@ public class ReadCardDetailsState implements State{
         }
         else{
             //move to the initial ready for transaction state
-            this.atm.changeState(new ReadyForTransactionState(this.atm));
+            this.atm.changeState(new EjectingCardState(this.atm));
         }
 
         return iscardValid;
