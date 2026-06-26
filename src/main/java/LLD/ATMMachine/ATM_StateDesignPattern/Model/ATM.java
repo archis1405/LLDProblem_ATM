@@ -1,5 +1,6 @@
 package LLD.ATMMachine.ATM_StateDesignPattern.Model;
 
+import LLD.ATMMachine.ATM_StateDesignPattern.API.BackendAPIInterface;
 import LLD.ATMMachine.ATM_StateDesignPattern.API.BackendAPIV1;
 import LLD.ATMMachine.ATM_StateDesignPattern.DTO.UpdateATMStateRequestDTO;
 import LLD.ATMMachine.ATM_StateDesignPattern.State.ReadyForTransactionState;
@@ -8,7 +9,7 @@ import LLD.ATMMachine.ATM_StateDesignPattern.State.State;
 public class ATM {
     private final String atmId;
     private State currentState;
-    private final BackendAPIV1 backendAPIV1;
+    private final BackendAPIInterface backendAPIV1;
 
     //It is taking atmId as a parameter because we can have multiple ATMs in the system and each ATM will have a unique id
     public ATM(String atmId) {
